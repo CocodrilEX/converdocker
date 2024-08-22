@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Conversión de Unidades</title>
+</head>
+<body>
+    <h1>Sistema de Conversión de Unidades</h1>
+    <form method="POST">
+        <label for="valor">Introduce el valor:</label>
+        <input type="number" step="any" id="valor" name="valor" required>
+
+        <label for="tipo_conversion">Tipo de Conversión:</label>
+        <select id="tipo_conversion" name="tipo_conversion">
+            <option value="metros_kilometros">Metros a Kilómetros</option>
+            <option value="gramos_kilogramos">Gramos a Kilogramos</option>
+            <option value="celsius_fahrenheit">Celsius a Fahrenheit</option>
+        </select>
+
+        <button type="submit">Convertir</button>
+    </form>
+
+    {% if resultado is not none %}
+        <h2>Resultado: {{ resultado }} {{ unidad }}</h2>
+    {% endif %}
+
+    {% if error is not none %}
+        <h2 style="color: red;">Error: {{ error }}</h2>
+    {% endif %}
+</body>
+</html>
